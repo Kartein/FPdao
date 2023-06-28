@@ -1,0 +1,17 @@
+create database finpes;
+use finpes;
+
+create table pessoa(
+  id integer primary key not null auto_increment,
+  nome varchar(50) not null,  
+  salario integer not null 
+);
+
+create table despesas(
+  id integer primary key not null auto_increment,
+  pessoa_id integer not null, 
+  descricao varchar(50) not null, 
+  valor integer not null,
+  saldo integer not null,
+  foreign key(pessoa_id) references pessoa(id)    
+);
